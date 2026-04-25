@@ -1,0 +1,60 @@
+---
+import PageLayout from "../../components/PageLayout.astro"
+import RegistrationForm from "../../components/RegistrationForm.tsx"
+---
+
+<PageLayout pageTitle="Föranmälan" title="Föranmälan · Körfest 2026">
+  <section class="form-section">
+    <div class="form-inner">
+      <p>
+        Om du vill vara med kan du föranmäla dig. Då har vi kontakt och hör av oss i början av
+        april när det är dags att köpa biljett.
+      </p>
+      <p class="highlight">Tidig anmälan = först i kön, men du binder dig inte att vara med.</p>
+      <p>
+        Priset är <span class="gold">300 kronor</span> och du betalar förstås inget förrän du
+        anmäler dig på riktigt i april. Pengarna går till lokal, dirigent, pianist, elflygel,
+        vakter och andra småsaker. <span class="gold">Två drinkbiljetter ingår.</span> En är din
+        egen, den andra ger du åt någon ny eller gammal kompis.
+      </p>
+      <p>Eftersom vi serverar alkohol behöver du vara minst 20 år gammal.</p>
+      <p>Vi lovar att inte dela dina kontaktuppgifter med någon annan, ingen reklam eller spam kommer komma via oss.</p>
+      <RegistrationForm
+        webhookUrl="https://script.google.com/macros/s/AKfycby1FoRTOunWxF9kAmlvICR2JPVhL3MagM8uYK49O9sMwrsP6OzzW1P1yUBJ7MwIKIMQqA/exec"
+        client:load
+      />
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+.form-section {
+  width: 100%;
+  padding: 0 var(--section-pad-h) var(--section-pad-v);
+  display: flex;
+  justify-content: center;
+}
+.form-inner {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0;
+  width: 100%;
+}
+.highlight {
+  color: var(--color-gold-light);
+  font-weight: 500;
+}
+.gold {
+  color: var(--color-gold-light);
+  font-weight: 500;
+}
+</style>

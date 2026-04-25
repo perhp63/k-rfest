@@ -1,0 +1,118 @@
+---
+import PageLayout from "../components/PageLayout.astro"
+import PageSection from "../components/PageSection.astro"
+---
+
+<PageLayout pageTitle="Musiken">
+
+  <PageSection
+    title="Noter"
+    image="https://framerusercontent.com/images/INiGnyiOa0DhSGbuadbbWe0B0.png"
+    imageRotation={-1}
+  >
+    <p>
+      Om du vill ha de riktiga körnoterna, kan du hitta dem på flera ställen, till exempel
+      <a href="https://www.gottfridjohansson.se" class="inline-link" target="_blank" rel="noopener">Gottfrid Johansson</a>
+      eller begagnat på
+      <a href="https://www.bokborsen.se" class="inline-link" target="_blank" rel="noopener">Bokbörsen</a>.
+      Om du vill skriva ut noterna själv, finns de gratis att ladda ner från till exempel
+      <a href="https://www.cpdl.org" class="inline-link" target="_blank" rel="noopener">CPDL</a>.
+    </p>
+  </PageSection>
+
+  <PageSection
+    title="Träna själv"
+    image="https://framerusercontent.com/images/MXUkKyLqxDEYy8UovSWsNJRskI.jpg"
+    imageRotation={1}
+  >
+    <p>
+      Alla körsatser finns hos
+      <a href="https://www.cyberbass.com" class="inline-link" target="_blank" rel="noopener">Cyberbass</a>,
+      där du antingen kan sjunga med alla stämmor eller bara din egen. Går det för snabbt är
+      det bara att skruva ner tempot. När du börjar få bättre koll kan du sjunga med några av
+      alla inspelningar på
+      <a href="https://open.spotify.com" class="inline-link" target="_blank" rel="noopener">Spotify</a>
+      eller Youtube —
+      <a href="#" class="inline-link">S</a> |
+      <a href="#" class="inline-link">A</a> |
+      <a href="#" class="inline-link">T</a> |
+      <a href="#" class="inline-link">B</a>.
+    </p>
+    <p>
+      De snabbaste och därför knepigaste bitarna brukar vara nr 7 "And he shall purify",
+      nr 21 "His yoke is easy" och nr 37 "The Lord Gave the Word".
+    </p>
+  </PageSection>
+
+  <PageSection
+    title="Urval"
+    image="https://framerusercontent.com/images/wwIxzTGjgc1hPZLVBmDXLnMJbg.jpg"
+    imageRotation={-1}
+  >
+    <p>Vi kommer inte sjunga allt, så här ser planen ut just nu.</p>
+    <ul>
+      <li>And the glory of the Lord</li>
+      <li>And He shall purify</li>
+      <li>O thou that tellest good tidings to Zion</li>
+      <li>For unto us a Child is born</li>
+      <li>Glory to God in the highest</li>
+      <li>His yoke is easy</li>
+      <li>Behold the Lamb of God</li>
+      <li>Surely, He hath borne our griefs</li>
+      <li>And with His stripes we are healed</li>
+      <li>All we like sheep</li>
+    </ul>
+  </PageSection>
+
+  <PageSection
+    title="Inspiration"
+    image="https://framerusercontent.com/images/Oqwroc2lj9760le0ytUou6Fd41A.jpg"
+    imageRotation={-1}
+  >
+    <p>Det finns många, många, många inspelningar av Messias. Här är några att ladda med inför festen.</p>
+    <ul>
+      <li><strong>Sydney Opera House</strong> — Med 600 sångare från 2019.</li>
+      <li><strong>Voces8 and Academy of Ancient Music</strong> — Tvärtom, med en riktigt liten kör.</li>
+      <li><strong>Queens College, Oxford</strong> — Kapitelindelat från 2024, lyssna på dina favoriter.</li>
+      <li>
+        <strong>A soulful celebration (Spotify)</strong> — Quincy Jones episka soulversion från år 2000
+        med bland annat Stevie Wonder, Patti Austin, Yellowjackets och Take Six.
+      </li>
+      <li>
+        <strong>Hallelujah</strong> — Videon med Quincy Jones och alla souliga artister för oss
+        som saknar axelpuffarna och 80-talet…
+      </li>
+    </ul>
+  </PageSection>
+
+</PageLayout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  width: 100%;
+}
+strong { font-weight: 600; color: rgba(255,255,255,0.95); }
+ul {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 1.4em;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.inline-link {
+  color: var(--color-gold);
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+.inline-link:hover { opacity: 0.75; }
+</style>

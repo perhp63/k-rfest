@@ -1,0 +1,38 @@
+---
+import PageLayout from "../components/PageLayout.astro"
+import PageSection from "../components/PageSection.astro"
+---
+
+<PageLayout pageTitle="Välkommen ❤️" title="Tack för din föranmälan · Körfest 2026">
+
+  <PageSection
+    image="https://framerusercontent.com/images/fcvnpkdSCuurrTlREJC6z4wczA.jpg"
+    imageRotation={-1}
+  >
+    <p>
+      Vi hör av oss i början av april, när vi öppnar bokningen på riktigt. Om något blev fel
+      är det bara att skicka in på nytt — den senaste gäller.
+    </p>
+    <a href="/" class="back-link">← Tillbaka till startsidan</a>
+  </PageSection>
+
+</PageLayout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+.back-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.back-link:hover { opacity: 0.75; }
+</style>

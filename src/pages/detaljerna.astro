@@ -1,0 +1,109 @@
+---
+import PageLayout from "../components/PageLayout.astro"
+import PageSection from "../components/PageSection.astro"
+---
+
+<PageLayout pageTitle="Detaljerna">
+
+  <PageSection
+    image="https://framerusercontent.com/images/BXiUHX3zFoCJN6s67qAdnJEOZM.jpg"
+    imageRotation={-1}
+  >
+    <p>
+      Här är mer information för dig som vill veta lite mer. Om något ändå är oklart,
+      så <a href="mailto:korfest@struktiv.se" class="inline-link">hör av dig</a>.
+    </p>
+
+    <div class="detail-block">
+      <h3>Körvana</h3>
+      <p>
+        Vi tror att de som kommer vara med blir en blandning av åldrar, bakgrunder och musikalisk
+        erfarenhet. För att vara med behöver du ha körvana, kanske har du sjungit Messias förut
+        eller så är du snabb på att lära dig nya noter.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Solister</h3>
+      <p>
+        Vi har en del bra leads och räknar med att kunna hitta och locka solister som vill vara med
+        och förgylla den här kvällen. Om du är en av dem som vill sjunga solo framför 300 körsångare,
+        <a href="mailto:korfest@struktiv.se" class="inline-link">hör av dig</a>.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Mat</h3>
+      <p>
+        Serveringen är öppen, det kommer finnas snacks, lättare barmat och mer riktigt mat
+        för de som vill ha något mer rejält i magen.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Dryck</h3>
+      <p>Baren har fullständiga rättigheter är öppen hela kvällen.</p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Tider</h3>
+      <p>
+        Vi öppnar 16.00, samlar ihop oss 18.00, sjunger upp 18.30 och sjunger sedan allt under
+        2 entimmespass, med mingel och bar däremellan. Klockan 01.00 stänger vi kalaset för
+        den här gången.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Efterinsläpp</h3>
+      <p>
+        Klockan 22 släpper vi in andra gäster (dina kompisar?), kanske bjuder vi dem på
+        slutkören Halleluja innan vi fortsätter med DJ och drinkar i baren.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <h3>Stämfördelning</h3>
+      <p>
+        Vi behöver ha lite balans, därför är 50 platser reserverade för varje herrstämma
+        och 80 i varje damstämma.
+      </p>
+    </div>
+  </PageSection>
+
+</PageLayout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  width: 100%;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  margin: 0;
+  text-align: center;
+  line-height: 1.1;
+  width: 100%;
+}
+.detail-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.inline-link {
+  color: var(--color-gold);
+  font-weight: 400;
+}
+.inline-link:hover { opacity: 0.8; }
+@media (max-width: 809px) { h3 { font-size: 20px; } }
+</style>

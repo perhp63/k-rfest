@@ -1,0 +1,32 @@
+---
+import PageLayout from "../components/PageLayout.astro"
+import PageSection from "../components/PageSection.astro"
+import ShareButtons from "../components/ShareButtons.tsx"
+---
+
+<PageLayout pageTitle="Tipsa andra">
+
+  <PageSection
+    image="https://framerusercontent.com/images/eHOVFbE8sgG9RLozBVDjTpwjUK0.jpg"
+    imageRotation={-1}
+  >
+    <p>
+      Dela gärna det här med dina kompisar, de du vill ha med dig. Det går förstås att skicka
+      dem länken till webbplatsen körfest.se, men om du vill hjälpa oss att slå på stort kan du
+      dela på riktigt.
+    </p>
+    <ShareButtons client:load />
+  </PageSection>
+
+</PageLayout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  width: 100%;
+}
+</style>

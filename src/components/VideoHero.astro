@@ -1,0 +1,274 @@
+---
+interface Props {
+  title?: string
+  subtitle?: string
+  dateText?: string
+  tagline?: string
+  ctaText?: string
+  ctaLink?: string
+  videoSrc?: string
+}
+const {
+  title    = "Körfest",
+  subtitle = "300 körsångare  ·  Händels Messias",
+  dateText = "6 juni 2026  ·  Stockholm",
+  tagline  = "Festen du inte vill missa",
+  ctaText  = "Föranmäl dig",
+  ctaLink  = "/anmalan",
+  videoSrc = "/media/brygghuset_45.mp4",
+} = Astro.props
+
+const cards = [
+  {
+    image: "https://framerusercontent.com/images/Zo0nnkSx86Vovcvm9tEIXto8NU.jpg",
+    label: "Festen",
+    link: "/#festen",
+  },
+  {
+    image: "https://framerusercontent.com/images/lkVwGlp3lIsWyS2hHUq5uLk.jpg",
+    label: "Platsen",
+    link: "/#platsen",
+  },
+  {
+    image: "https://framerusercontent.com/images/RQSqqucNcLM02kNqhDI7dyEfdiw.jpg",
+    label: "Anmälan",
+    link: "/anmalan",
+  },
+]
+---
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src={videoSrc} type="video/mp4" />
+  </video>
+
+  <div class="hero-overlay"></div>
+  <div class="hero-gradient-bottom"></div>
+
+  <div class="hero-layout">
+    <div class="hero-center">
+      <div class="hero-content">
+        <p class="hero-date">{dateText}</p>
+        <h1 class="hero-title">{title}</h1>
+        <p class="hero-subtitle">{subtitle}</p>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">{tagline}</p>
+        <a href={ctaLink} class="hero-cta">{ctaText}</a>
+      </div>
+    </div>
+
+    <div class="hero-cards">
+      {cards.map(card => (
+        <a href={card.link} class="hero-card">
+          <div class="hero-card-bg" style={`background-image: url('${card.image}')`}></div>
+          <div class="hero-card-overlay"></div>
+          <span class="hero-card-label">{card.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #0d1520;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(4, 1, 28, 0.55);
+}
+
+.hero-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(13, 21, 32, 1) 0%, rgba(13, 21, 32, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-layout {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 800px;
+  text-align: center;
+  width: 100%;
+  animation: fadeUp 1.2s ease-out 0.3s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-date {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+.hero-title {
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1em;
+  color: #fff;
+  margin: 0;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 4px 0;
+}
+
+.hero-tagline {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.hero-cta {
+  margin-top: 12px;
+  padding: 16px 48px;
+  background-color: var(--color-gold);
+  color: rgb(13, 21, 32);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: inline-block;
+}
+.hero-cta:hover {
+  transform: scale(1.05);
+  opacity: 0.92;
+}
+
+/* ─── Cards ─────────────────────────────────────── */
+.hero-cards {
+  display: flex;
+  gap: 16px;
+  padding: 0 40px 40px;
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hero-card {
+  flex: 1;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.hero-card:hover { transform: scale(1.03); }
+
+.hero-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.hero-card-label {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── Tablet: 810px – 1199px ─────────────────────── */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .hero-title    { font-size: 64px; }
+  .hero-subtitle { font-size: 20px; }
+  .hero-date     { font-size: 12px; letter-spacing: 3px; }
+  .hero-tagline  { font-size: 16px; }
+  .hero-card     { height: 120px; }
+  /* Cards overlap the bottom of the video on tablet */
+  .hero-cards    { transform: translateY(-150px); margin-bottom: -150px; }
+}
+
+/* ─── Mobile: < 810px ───────────────────────────── */
+@media (max-width: 809px) {
+  .hero-center   { padding: 40px 24px 0; }
+  .hero-content  { gap: 16px; }
+  .hero-title    { font-size: 48px; }
+  .hero-subtitle { font-size: 18px; }
+  .hero-date     { font-size: 11px; letter-spacing: 2px; }
+  .hero-tagline  { font-size: 15px; }
+  .hero-divider  { width: 40px; }
+  .hero-cta      { padding: 14px 36px; margin-top: 8px; }
+  .hero-cards    { padding: 0 20px 24px; gap: 10px; }
+  .hero-card     { height: 100px; }
+  .hero-card-label { font-size: 10px; }
+}
+</style>

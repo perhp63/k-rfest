@@ -1,0 +1,136 @@
+---
+import PageLayout from "../components/PageLayout.astro"
+import PageSection from "../components/PageSection.astro"
+---
+
+<PageLayout pageTitle="Kontakt">
+
+  <PageSection>
+    <p>
+      Det här är vi som fixar kalaset. Hör av dig om du har frågor eller vill bolla idéer.
+      Vi samarbetar gärna med andra för att göra den här festen ännu bättre!
+    </p>
+
+    <div class="person">
+      <h3>Festgeneral</h3>
+      <div class="polaroid" style="--rot: -1deg">
+        <img
+          src="https://framerusercontent.com/images/1GCtWZSdG1Y1xwqMusfaGB5q20.jpg"
+          alt="Per Hansson"
+        />
+      </div>
+      <p>
+        Per Hansson sjunger med Akademiska kören och Sofia motettkör. Till vardags jobbar han
+        som biträdande rektor i Stockholms Stad och driver webbplatsen Struktiv.
+      </p>
+      <a href="mailto:per@struktiv.se" class="contact-link">per@struktiv.se</a>
+      <span class="contact-phone">076-199 20 80</span>
+    </div>
+
+    <div class="person">
+      <h3>Lokalchefen</h3>
+      <p>
+        Kalle Josefsson arrangerar event i Stockholm och har hand om allt kopplat till Brygghuset,
+        där vi kommer vara under kvällen.
+      </p>
+      <a href="mailto:langkalle@gmail.com" class="contact-link">langkalle@gmail.com</a>
+    </div>
+
+    <div class="person">
+      <h3>Teknikfixaren</h3>
+      <p>
+        Olov Björk jobbar med tekniska lösningar runt event och håller i de detaljer som gör att
+        du inte kommer glömma den här festen.
+      </p>
+      <a href="mailto:olov.92@gmail.com" class="contact-link">olov.92@gmail.com</a>
+    </div>
+
+    <div class="person">
+      <h3>Musikspindeln</h3>
+      <p>
+        Leo Åkerberg koordinerar de som spelar, dirigerar och sjunger solopartierna under kvällen.
+      </p>
+      <a href="mailto:leoakerberg@gmail.com" class="contact-link">leoakerberg@gmail.com</a>
+    </div>
+
+    <div class="person">
+      <h3>Sveriges körförbund</h3>
+      <img
+        src="https://framerusercontent.com/images/tVPWkkZjhhGmEHN3RICW2BgAs.png"
+        alt="Sveriges körförbund"
+        class="korforbund-logo"
+      />
+      <p>
+        Vi samarbetar med Sveriges Körförbund för att sprida information om festen, men också
+        för att hitta musiker och solister som hjälper oss att göra den här kvällen minnesvärd.
+      </p>
+      <a href="mailto:kansli@sverigeskorforbund.se" class="contact-link">kansli@sverigeskorforbund.se</a>
+      <span class="contact-phone">070-782 92 44</span>
+    </div>
+  </PageSection>
+
+</PageLayout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  width: 100%;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin: 0;
+  line-height: 1.1;
+  width: 100%;
+}
+.person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.polaroid {
+  background: white;
+  padding: 8px 8px 28px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+  transform: rotate(var(--rot, -1deg));
+  width: 80%;
+  max-width: 380px;
+}
+.polaroid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  display: block;
+}
+.contact-link {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-gold);
+  transition: opacity 0.2s;
+}
+.contact-link:hover { opacity: 0.75; }
+.contact-phone {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+.korforbund-logo {
+  width: 120px;
+  margin: 4px 0;
+}
+@media (max-width: 809px) {
+  h3 { font-size: 20px; }
+  .polaroid { width: 100%; }
+}
+</style>

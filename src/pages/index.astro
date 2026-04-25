@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro"
+import VideoHero from "../components/VideoHero.astro"
+import Section from "../components/Section.astro"
+import SideNav from "../components/SideNav.tsx"
+---
+
+<Layout>
+  <SideNav client:only="react" />
+  <VideoHero />
+
+  <main data-animate>
+    <Section id="festen" title="Festen">
+      <p>
+        Den 6 juni 2026 samlar vi 300 körsångare i Stockholm för att sjunga det mesta och bästa ur
+        Händels Messias. Det är inte en konsert, utan en fest för oss som älskar att sjunga, där vi
+        med något gott att äta och dricka får träffa nya och gamla körkompisar.
+      </p>
+      <p>
+        Efter att vi sjungit klart samlas vi alla i baren för en härlig efterfest med Dj och drinkar
+        och allmänt uppsluppen stämning. Ett perfekt sätt att fira Nationaldagen och glida in i
+        rätt sommarstämning.
+      </p>
+    </Section>
+
+    <Section id="platsen" title="Platsen" paddingTop="50px">
+      <p>
+        Vi håller till mitt i Stockholms City, i Brygghuset vid Odenplan. Blir det soligt finns en
+        fin uteplats där vi kan sitta och värma upp med något att dricka innan vi börjar sjunga.
+        Om vädret skulle vara sämre spänner vi upp ett regnskydd och minglar i andra lokaler.
+      </p>
+      <video class="place-video" autoplay muted loop playsinline>
+        <source src="https://www.struktiv.se/media/brygghuset_45.mp4" type="video/mp4" />
+      </video>
+    </Section>
+
+    <Section id="anmalan" title="Föranmälan" paddingTop="50px">
+      <p>
+        Vad kul om du vill vara med, i så fall kan du föranmäla dig. Då får vi kontakt och du
+        har ett nummer i kön när det är dags att anmäla sig på riktigt. I början av april bjuder
+        vi in de som hört av sig och fyller upp de 300 platserna.
+      </p>
+      <p>
+        Att vara med kostar 300 kronor och du betalar förstås inget förrän du anmäler dig på
+        riktigt i april. Pengarna går till lokal, dirigent, pianist, elflygel, vakter och andra
+        småsaker. Man blir lätt törstig av allt sjungande, så i priset ingår också två drinkbiljetter,
+        en till dig och en som du får bjuda en ny eller gammal kompis på. För att få vara med
+        behöver du ha fyllt 20 år.
+      </p>
+      <a href="/anmalan" class="cta-btn">Föranmäl dig</a>
+    </Section>
+
+    <Section id="kontakt" title="Kontakt" paddingTop="50px">
+      <a href="mailto:korfest@struktiv.se" class="contact-email">korfest@struktiv.se</a>
+      <p class="contact-sub">Körfest 2026 · Stockholm</p>
+    </Section>
+  </main>
+</Layout>
+
+<style>
+p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  width: 100%;
+}
+.place-video {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background-color: var(--color-gold);
+  color: rgb(13, 21, 32);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.cta-btn:hover { transform: scale(1.03); opacity: 0.9; }
+.contact-email {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--color-gold);
+}
+.contact-sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+</style>

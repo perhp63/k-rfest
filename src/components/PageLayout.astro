@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro"
+import SideNav from "./SideNav.tsx"
+
+interface Props {
+  title?: string
+  pageTitle: string
+  description?: string
+}
+const { title, pageTitle, description } = Astro.props
+---
+
+<Layout title={title ?? `${pageTitle} · Körfest 2026`} description={description}>
+  <SideNav client:only="react" />
+
+  <main class="page-main" data-animate>
+    <header class="page-header">
+      <div class="page-header-inner">
+        <h1 class="page-title">{pageTitle}</h1>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="contact-footer">
+      <div class="contact-inner">
+        <a href="mailto:korfest@struktiv.se" class="contact-email">korfest@struktiv.se</a>
+        <p class="contact-sub">Körfest 2026 · Stockholm</p>
+      </div>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+.page-main {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.page-header {
+  width: 100%;
+  padding: 100px var(--section-pad-h) 55px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-header-inner {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.contact-footer {
+  width: 100%;
+  padding: var(--section-pad-v) var(--section-pad-h);
+  display: flex;
+  justify-content: center;
+}
+
+.contact-inner {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-email {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--color-gold);
+}
+
+.contact-sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .page-header  { padding-top: 80px; }
+  .page-title   { font-size: 36px; }
+}
+
+/* Mobile */
+@media (max-width: 809px) {
+  .page-header  { padding-top: 70px; padding-bottom: 40px; }
+  .page-title   { font-size: 28px; }
+  .contact-sub  { font-size: 16px; }
+}
+</style>

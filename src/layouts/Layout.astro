@@ -1,0 +1,80 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+const {
+  title = "Körfest 2026 · Stockholm",
+  description = "300 körsångare sjunger Händels Messias. 6 juni 2026 på Brygghuset vid Odenplan.",
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script>
+// Page animation – mirrors Framer PageAnimator behaviour
+// Fades + slides each section into view as it enters the viewport
+
+const CSS = `
+@keyframes kf-title-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes kf-content-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+`
+
+function initAnimations() {
+  if (document.getElementById('kf-anim-styles')) return
+  const s = document.createElement('style')
+  s.id = 'kf-anim-styles'
+  s.textContent = CSS
+  document.head.appendChild(s)
+
+  // Animate children of [data-animate] containers
+  document.querySelectorAll<HTMLElement>('[data-animate]').forEach(container => {
+    const children = Array.from(container.children) as HTMLElement[]
+    let sectionIndex = 0
+
+    children.forEach(child => {
+      const rect = child.getBoundingClientRect()
+      if (rect.height < 20) return
+
+      const idx = sectionIndex++
+      child.style.opacity = '0'
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return
+          const isTitle = idx === 0
+          const delay   = idx * 0.12
+          const dur     = isTitle ? 1.0 : 0.8
+          const anim    = isTitle ? 'kf-title-in' : 'kf-content-in'
+          child.style.animation = `${anim} ${dur}s cubic-bezier(0.25,0.1,0.25,1) ${delay}s forwards`
+          observer.disconnect()
+        })
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' })
+
+      observer.observe(child)
+    })
+  })
+}
+
+// Run on first load and after any client-side navigation
+document.addEventListener('DOMContentLoaded', initAnimations)
+</script>

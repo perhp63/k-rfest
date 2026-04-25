@@ -1,0 +1,57 @@
+---
+interface Props {
+  id?: string
+  title?: string
+  paddingTop?: string
+}
+const { id, title, paddingTop = "var(--section-pad-v)" } = Astro.props
+---
+
+<section class="section" id={id} style={`padding-top: ${paddingTop}`}>
+  <div class="section-inner">
+    {title && <h2 class="section-title">{title}</h2>}
+    <slot />
+  </div>
+</section>
+
+<style>
+.section {
+  width: 100%;
+  padding-bottom: var(--section-pad-v);
+  padding-left: var(--section-pad-h);
+  padding-right: var(--section-pad-h);
+  display: flex;
+  justify-content: center;
+}
+
+.section-inner {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .section-title { font-size: 36px; }
+}
+
+/* Mobile */
+@media (max-width: 809px) {
+  .section-title { font-size: 28px; }
+  .section-inner { gap: 24px; }
+}
+</style>

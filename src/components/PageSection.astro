@@ -1,0 +1,83 @@
+---
+interface Props {
+  title?: string
+  paddingTop?: string
+  image?: string
+  imageRotation?: number
+}
+const { title, paddingTop = "50px", image, imageRotation = -1 } = Astro.props
+---
+
+<section class="ps" style={`padding-top: ${paddingTop}`}>
+  <div class="ps-inner">
+    {title && <h2 class="ps-title">{title}</h2>}
+    <slot />
+    {image && (
+      <div class="ps-polaroid" style={`--rot: ${imageRotation}deg`}>
+        <img src={image} alt="" class="ps-img" loading="lazy" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+.ps {
+  width: 100%;
+  padding-bottom: var(--section-pad-v);
+  padding-left: var(--section-pad-h);
+  padding-right: var(--section-pad-h);
+  display: flex;
+  justify-content: center;
+}
+
+.ps-inner {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.ps-title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-gold-light);
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.ps-polaroid {
+  background: white;
+  padding: 8px 8px 28px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
+  transform: rotate(var(--rot, -1deg));
+  width: 80%;
+  max-width: 420px;
+  align-self: center;
+}
+
+.ps-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tablet */
+@media (min-width: 810px) and (max-width: 1199px) {
+  .ps-title { font-size: 36px; }
+  .ps-inner { gap: 24px; }
+}
+
+/* Mobile */
+@media (max-width: 809px) {
+  .ps-title    { font-size: 28px; }
+  .ps-inner    { gap: 20px; }
+  .ps-polaroid { width: 95%; }
+}
+</style>

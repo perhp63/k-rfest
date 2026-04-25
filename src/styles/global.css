@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg:         rgb(13, 21, 32);
+  --color-gold:       rgb(232, 160, 53);
+  --color-gold-light: rgb(240, 220, 150);
+  --color-gold-dim:   rgba(232, 160, 53, 0.12);
+  --color-text:       rgba(255, 255, 255, 0.9);
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --color-border:     rgba(255, 255, 255, 0.15);
+  --color-input-bg:   rgba(255, 255, 255, 0.08);
+  --color-card-bg:    rgba(255, 255, 255, 0.04);
+  --font-main:        'Montserrat', sans-serif;
+  --max-content:      600px;
+
+  /* Spacing scale */
+  --section-pad-v:    100px;
+  --section-pad-h:    45px;
+  --section-pad-v-sm: 60px;
+  --section-pad-h-sm: 24px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-email {
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+}
+
+/* ─── Responsive spacing tokens ─── */
+@media (max-width: 809px) {
+  :root {
+    --section-pad-v:  60px;
+    --section-pad-h:  24px;
+  }
+}
